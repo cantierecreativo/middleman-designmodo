@@ -1,27 +1,25 @@
+// webpack v4
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require('webpack');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require("autoprefixer");
 const MinifyPlugin = require("babel-minify-webpack-plugin");
 
-const extractSass = new ExtractTextPlugin({
-  filename: "stylesheets/[name].css",
-  disable: process.env.NODE_ENV === "development"
+const extractMiniCss = new MiniCssExtractPlugin({
+  filename: "stylesheets/[name].css"
 });
 
 module.exports = {
   entry: {
     application: './source/js/script.js',
-    styles: './source/scss/styles.scss',
+    styles: './source/scss/style.scss',
   },
   resolve: {
     modules: [
-      path.join(__dirname, 'source/stylesheets'),
-      path.join(__dirname, 'source/javascripts'),
+      path.join(__dirname, 'source/scss'),
+      path.join(__dirname, 'source/js'),
       "node_modules"
-    ],
-    alias: {
-      modernizr$: path.resolve(__dirname, ".modernizrrc.js")
-    }
+    ]
   },
   output: {
     path: path.resolve(__dirname, '.tmp/dist'),
@@ -29,10 +27,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        loader: "webpack-modernizr-loader",
-        test: /\.modernizrrc\.js$/
-      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -50,23 +44,22 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/,
-        use: extractSass.extract({
-          use: [
-            { loader: "css-loader" },
-            {
-              loader: 'postcss-loader',
-              options: {
-                plugins: () => [autoprefixer()]
-              }
-            },
-            { loader: "sass-loader" }
-          ]
-        })
+        use: [
+          { loader: MiniCssExtractPlugin.loader },
+          { loader: "css-loader" },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [autoprefixer()]
+            }
+          },
+          { loader: "sass-loader" }
+        ]
       }
     ]
   },
   plugins: [
-    extractSass,
+    extractMiniCss,
     new MinifyPlugin()
   ]
 };
