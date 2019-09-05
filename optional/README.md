@@ -9,6 +9,8 @@ Now you can modify the HTML to Middleman requirements:
   2. Cut all the data between the HEAD tags and paste it into `partials/_head.html.erb`;
   3. Cut all the `script` tags and paste it into `partials/_js_includes.html.erb`;
   4. Move all the data between `BODY` tags inside your `template/index.html.erb`
+  5. Change all images url path `url(../i/etc..) -> url(/i/etc...)` inside scss files
+  6. Update `style.scss` to import all scss and remove all ref to css files
 
 ```
 git clone <%= @origin %>
