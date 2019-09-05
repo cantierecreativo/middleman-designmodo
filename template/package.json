@@ -1,0 +1,45 @@
+{
+  "name": "middleman-designmodo",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Designmodo Middleman website",
+  "scripts": {
+    "dev": "webpack --mode development --watch -d --progress --color",
+    "build": "webpack --mode production --bail -p",
+    "lint": "yarn run eslint source/javascripts/*",
+    "lint:autocorrect": "eslint source/javascripts/* --fix"
+  },
+  "author": "Cantiere Creativo s.r.l.",
+  "main": "index.js",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/preset-env": "^7.3.1",
+    "@fancyapps/fancybox": "^3.5.7",
+    "aos": "^2.3.4",
+    "autoprefixer": "7.2.5",
+    "babel-loader": "^8.0.5",
+    "babel-minify-webpack-plugin": "^0.3.1",
+    "css-loader": "^2.1.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "get-caller-file": "1.0.3",
+    "glob": "^7.1.2",
+    "glob-loader": "0.3.0",
+    "import-glob-loader": "1.1.0",
+    "jquery": ">=3.4.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "4.7.2",
+    "postcss-loader": "2.0.10",
+    "sass-loader": "6.0.6",
+    "slick-carousel": "^1.8.1",
+    "style-loader": "^0.23.1",
+    "webpack": "4.28.4",
+    "webpack-cli": "^3.2.1",
+    "webpack-modernizr-loader": "4.0.1"
+  },
+  "dependencies": {
+    "bootstrap": "4.3.1",
+    "lazyload": "^2.0.0-rc.2"
+  }
+}

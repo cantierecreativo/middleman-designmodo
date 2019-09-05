@@ -1,0 +1,8 @@
+source 'https://rubygems.org'
+
+gem 'middleman', '~> 4.2'
+gem 'middleman-dato'
+gem 'middleman-livereload'
+gem 'middleman-minify-html'
+gem 'pry'
+gem 'slim'
