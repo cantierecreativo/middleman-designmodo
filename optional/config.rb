@@ -6,8 +6,6 @@ set :url_root, ENV.fetch('BASE_URL')
 
 ignore '/templates/*'
 
-config[:js_dir] = 'js'
-config[:css_dir] = 'scss'
 config[:images_dir] = 'i'
 
 <%- if @langs -%>
@@ -17,7 +15,6 @@ activate :i18n, langs: langs, mount_at_root: langs.first
 
 activate :asset_hash
 activate :directory_indexes
-activate :pagination
 <%- if @token -%>
 activate :dato, token: ENV.fetch('DATO_API_TOKEN'), live_reload: true
 <%- end -%>
