@@ -92,20 +92,18 @@ end
 
 <%- if @token -%>
 # dato.tap do |dato|
-#   dato.landing.each do |article|
-#     proxy(
-#       '/index.html',
-#       '/templates/index.html',
-#       locals: { page: dato.landing }
-#     )
-#   end
+#   proxy(
+#     "/index.html",
+#     "/templates/index.html",
+#     locals: { page: dato.landing }
+#   )
 
 #   MULTILANG SAMPLES
 #   langs.each do |locale|
 #     I18n.with_locale(locale) do
 #       proxy "/#{locale}/index.html",
 #         "/template/index.html",
-#         locals: { page: dato.homepage },
+#         locals: { page: dato.landing },
 #         locale: locale
 #
 #     end
