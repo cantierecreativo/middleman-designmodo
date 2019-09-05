@@ -7,10 +7,8 @@ Now you can modify the HTML to Middleman requirements:
 
   1. Open `index.html` and copy all the data into `template/layouts/layout.html.erb`;
   2. Cut all the data between the HEAD tags and paste it into `partials/_head.html.erb`;
-  3. Use `<%= render "partials/head" %>` to import a new file into layout;
-  4. Cut all the `script` tags and paste it into `partials/_js_includes.html.erb`;
-  5. Use `<%= render "partials/js_includes" %>` to import a new file into layout;
-  6. Move all the data between `BODY` tags inside your `template/index.html.erb` and replace with `<%= yield %>`
+  3. Cut all the `script` tags and paste it into `partials/_js_includes.html.erb`;
+  4. Move all the data between `BODY` tags inside your `template/index.html.erb`
 
 ```
 git clone <%= @origin %>
